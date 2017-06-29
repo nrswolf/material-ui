@@ -368,6 +368,12 @@ class TextField extends Component {
     }
   };
 
+  onKeyPress = (event) => {
+    if (event.which === 13) {
+      event.preventDefault()
+    }
+  };
+
   handleHeightChange = (event, height) => {
     let newHeight = height + 24;
     if (this.props.floatingLabelText) {
@@ -447,6 +453,7 @@ class TextField extends Component {
       onBlur: this.handleInputBlur,
       onChange: this.handleInputChange,
       onFocus: this.handleInputFocus,
+      onKeyPress: this.onKeyPress
     };
 
     const childStyleMerged = Object.assign(styles.input, inputStyle);
